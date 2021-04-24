@@ -18,7 +18,7 @@ con.connect(function(err){
 function createTable() {
     con.query('SELECT * FROM feedback', function(err, result, fields){
         if(err){
-            const sql = 'CREATE TABLE feedback (id INT AUTO_INCREMENT PRIMARY KEY, body VARCHAR(255) , stars INT )'
+            const sql = 'CREATE TABLE feedback (id INT AUTO_INCREMENT PRIMARY KEY, body VARCHAR(255) Not Null, stars INT )'
             con.query(sql, function(err, result){
                 if(err) throw err
             });

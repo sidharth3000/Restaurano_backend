@@ -18,7 +18,7 @@ con.connect(function(err){
 function createTable() {
     con.query('SELECT * FROM res', function(err, result, fields){
         if(err){
-            const sql = 'CREATE TABLE res (id INT , date INT ,  members INT )'
+            const sql = 'CREATE TABLE res (id INT PRIMARY KEY, date VARCHAR(255) Not Null,  members INT Not Null)'
             con.query(sql, function(err, result){
                 if(err) throw err
             });
@@ -56,7 +56,6 @@ router.get('/GETRES', async (req, res)=> {
       if (err) throw err;
       console.log(result);
       res.send({ result })
-    //   console.log(req.headers['id']);
     });  
 });
 

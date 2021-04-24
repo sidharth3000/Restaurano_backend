@@ -18,7 +18,7 @@ con.connect(function(err){
 function createTable() {
     con.query('SELECT * FROM orders', function(err, result, fields){
         if(err){
-            const sql = 'CREATE TABLE orders (id INT , address VARCHAR(255) , delivery VARCHAR(255), name VARCHAR(255) , phone INT, price INT, item VARCHAR(255) )'
+            const sql = 'CREATE TABLE orders (id INT PRIMARY KEY, address VARCHAR(255) Not Null, delivery VARCHAR(255) Not Null, name VARCHAR(255) Not Null, phone INT Not Null, price INT Not Null, item VARCHAR(255) )'
             con.query(sql, function(err, result){
                 if(err) throw err
             });
